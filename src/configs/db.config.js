@@ -8,9 +8,7 @@ const DbConnection = async () => {
       useUnifiedTopology: true,
     });
 
-    console.log(
-      `Connected to Mongo! Database name: "${connection.connections[0].name}"`
-    );
+    console.log(`Connected to Mongo! Database name: "${connection.connections[0].name}"`);
 
     return true;
   } catch (error) {
