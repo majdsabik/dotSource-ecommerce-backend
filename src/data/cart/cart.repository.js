@@ -7,6 +7,10 @@ const findCartById = async id => {
 const getAllCarts = async () => {
   return await Cart.find();
 };
+const getCart = async () => {
+  const result = await Cart.findOne();
+  return await result;
+};
 const createCart = async cart => {
   return await Cart.create(cart);
 };
@@ -32,6 +36,7 @@ const getPricesFromListOfProducts = async products => {
 
 module.exports = {
   getAllCarts,
+  getCart,
   findCartById,
   createCart,
   updateCart,
