@@ -2,14 +2,17 @@ const Cart = require('./cart.model');
 const { findProductById } = require('../product/product.repository');
 
 const findCartById = async id => {
-  return await Cart.findOne({ _id: id });
+  return await Cart.findOne({ _id: id }).populate({
+    path: 'products.productId',
+  });
 };
 const getAllCarts = async () => {
   return await Cart.find();
 };
 const getCart = async () => {
-  const result = await Cart.findOne();
-  return await result;
+  return await Cart.findOne().populate({
+    path: 'products.productId',
+  });
 };
 const createCart = async cart => {
   return await Cart.create(cart);
