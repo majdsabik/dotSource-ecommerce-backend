@@ -5,28 +5,18 @@ const {
   deleteCart,
   getPricesFromListOfProducts,
   getAllCarts,
-  getCart
+  getCart,
 } = require('../../data/cart/cart.repository');
 
 const { calculateCart } = require('./helpers');
 
 const Cart = require('../../data/cart/cart.entity');
-const { ConsoleWriter } = require('istanbul-lib-report');
 
 class CartController {
-  /* async show(req, res, next) {
-    try {
-      const result = await getAllCarts();
-      const carts = result.map(item => new Cart(item));
-      res.json(carts);
-    } catch (error) {
-      res.json(error);
-    }
-  } */
   async show(req, res, next) {
     try {
       const result = await getCart();
-      const cart = new Cart(result)
+      const cart = new Cart(result);
       res.json(cart);
     } catch (error) {
       res.json(error);
