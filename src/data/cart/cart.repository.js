@@ -10,9 +10,14 @@ const getAllCarts = async () => {
   return await Cart.find();
 };
 const getCart = async () => {
-  return await Cart.findOne().populate({
+  const result = await Cart.findOne().populate({
     path: 'products.productId',
   });
+  if (!result) {
+    const cart = { products: [], couponsId: [] };
+    return await Cart.create(cart);
+  }
+  return result;
 };
 const createCart = async cart => {
   return await Cart.create(cart);
