@@ -5,7 +5,6 @@ class Coupon extends ClassBase {
     super(data);
     this.code = data.code;
     this.value = data.value;
-    this.availableUntil = data.availableUntil;
   }
 }
 

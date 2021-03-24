@@ -14,7 +14,7 @@ const getCart = async () => {
     path: 'products.productId',
   });
   if (!result) {
-    const cart = { products: [], couponsId: [] };
+    const cart = { products: [], coupons: [] };
     return await Cart.create(cart);
   }
   return result;
@@ -34,7 +34,7 @@ const getPricesFromListOfProducts = async products => {
     return await Promise.all(
       products.map(async product => {
         const found = await findProductById(product.productId);
-        return found.price * product.qtd;
+        return found.price * product.qty;
       })
     );
   } catch (error) {

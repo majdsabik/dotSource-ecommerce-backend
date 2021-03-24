@@ -6,7 +6,6 @@ class Product extends ClassBase {
     this.name = data.name;
     this.description = data.description;
     this.price = data.price;
-    this.inStock = data.inStock;
   }
 }
 
