@@ -13,10 +13,6 @@ const CouponSchema = new Schema(
       type: Number,
       required: true,
     },
-    availableUntil: {
-      type: Date,
-      required: true,
-    },
   },
   {
     timestamps: {

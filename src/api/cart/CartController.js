@@ -3,8 +3,6 @@ const {
   findCartById,
   updateCart,
   deleteCart,
-  getPricesFromListOfProducts,
-  getAllCarts,
   getCart,
 } = require('../../data/cart/cart.repository');
 

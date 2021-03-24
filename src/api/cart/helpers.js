@@ -3,7 +3,7 @@ const { getPricesFromListOfProducts } = require('../../data/cart/cart.repository
 
 async function calculateCart(cart) {
   const subTotal = await calculateSubtotal(cart.products);
-  const discount = await calculateDiscount(cart.couponsId);
+  const discount = await calculateDiscount(cart.coupons);
   const vat = (subTotal - discount) * 0.19;
   const total = subTotal - discount + vat;
   return { ...cart, subTotal, discount, vat, total };
@@ -18,9 +18,9 @@ async function calculateSubtotal(products) {
   return 0;
 }
 
-async function calculateDiscount(couponsId) {
-  if (couponsId.length > 0) {
-    const prices = await getCouponsFromListOfCoupons(couponsId);
+async function calculateDiscount(coupons) {
+  if (coupons.length > 0) {
+    const prices = await getCouponsFromListOfCoupons(coupons);
     const totalDiscount = prices.reduce((acc, item) => acc + item, 0);
     return totalDiscount;
   }

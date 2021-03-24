@@ -9,10 +9,10 @@ const CartSchema = new Schema(
           type: Schema.Types.ObjectId,
           ref: 'product',
         },
-        qtd: Number,
+        qty: Number,
       },
     ],
-    couponsId: [
+    coupons: [
       {
         type: Schema.Types.ObjectId,
         ref: 'coupon',
