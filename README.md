@@ -27,6 +27,16 @@ Using npm:
 ```bash
 npm start
 ```
+## Testing
+Use the following command to start the tests:  
+Using yarn:
+```bash
+yarn test
+```
+Using npm:
+```bash
+npm test
+```
 ## API Routes:
 ### Cart Routes:
 ```bash
